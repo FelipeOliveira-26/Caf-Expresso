@@ -86,6 +86,22 @@ Controla todo o fluxo do atendimento, garantindo que as etapas sejam seguidas co
 ## Autores
 Felipe Mendes / Erivelton Afonso
 
+## Etapas de Desenvolvimento
+
+O projeto foi desenvolvido de forma incremental, com commits separados por funcionalidade.  
+Cada método principal implementado foi acompanhado de testes específicos, permitindo validar o comportamento do sistema a cada etapa.
+
+### Etapas a serem realizadas
+
+1. Criação da estrutura inicial do projeto
+2. Implementação da classe 'Produto'
+3. Criação de testes para validação de nome e preço
+4. Implementação da classe 'ItemPedido'
+5. Criação de testes para cálculo de subtotal
+6. Implementação da classe 'Pedido'
+7. Criação de testes para adição de itens, cálculo do total e controle de status
+8. Ajustes finais e documentação
+
 ## Considerações Finais
 
 O sistema Café Expresso foi projetado para tornar o atendimento em cafeterias mais rápido, organizado e eficiente. Com a automação do processo de pedidos, é possível reduzir filas, evitar erros de comunicação e melhorar a experiência tanto do cliente quanto da equipe responsável pelo preparo dos produtos.
