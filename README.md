@@ -83,9 +83,6 @@ Controla todo o fluxo do atendimento, garantindo que as etapas sejam seguidas co
 - Java
 - Programação Orientada a Objetos
 
-## Autores
-Felipe Mendes / Erivelton Afonso
-
 ## Etapas de Desenvolvimento
 
 O projeto foi desenvolvido de forma incremental, com commits separados por funcionalidade.  
@@ -105,3 +102,6 @@ Cada método principal implementado foi acompanhado de testes específicos, perm
 ## Considerações Finais
 
 O sistema Café Expresso foi projetado para tornar o atendimento em cafeterias mais rápido, organizado e eficiente. Com a automação do processo de pedidos, é possível reduzir filas, evitar erros de comunicação e melhorar a experiência tanto do cliente quanto da equipe responsável pelo preparo dos produtos.
+
+## Projeto Desenvolvido pela dupla de Autores
+Felipe Mendes / Erivelton Afonso
