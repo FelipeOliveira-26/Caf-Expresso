@@ -11,4 +11,10 @@ public class ProdutoTeste {
         assertEquals("Café Expresso", produto.getNome());
         assertEquals(5.00, produto.getPreco());
     }
+
+    @Test 
+    void deveLançarExcecaoQuandoNomeForInvalido(){
+
+    }
+
 }
