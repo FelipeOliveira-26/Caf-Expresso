@@ -9,7 +9,7 @@ public class Produto {
     }
     // Validação do nome do produto 
     private void validarNome(String nome) {
-        // Null check
+        // Verifica se a variavel é null
         if (nome == null) {
             throw new IllegalArgumentException("Nome não pode ser null");
         }
@@ -17,20 +17,11 @@ public class Produto {
         // Trim para limpar espaços
         String nomeLimpo = nome.trim();
         
-        // Vazio ou só espaços
+        // Verifica se a variavel está Vazia ou contém apenas espaços 
         if (nomeLimpo.isEmpty()) {
             throw new IllegalArgumentException("Nome não pode ser vazio ou conter apenas espaços");
         }
         
-        // Tamanho mínimo
-        if (nomeLimpo.length() < 3) {
-            throw new IllegalArgumentException("Nome deve ter pelo menos 3 caracteres");
-        }
-        
-        // Tamanho máximo
-        if (nomeLimpo.length() > 100) {
-            throw new IllegalArgumentException("Nome deve ter no máximo 100 caracteres");
-        }
     }
 
     public String getNome() {
