@@ -13,12 +13,6 @@ public class ProdutoTeste {
     }
      
     //Testes da validação do nome do produto
-    @Test
-void deveCriarProdutoValido() {
-    Produto p = new Produto("Café", 5.0);
-    assertEquals("Café", p.getNome());
-}
-
 @Test
 void nomeNullDeveFalhar() {
     assertThrows(IllegalArgumentException.class, 
@@ -42,5 +36,22 @@ void nomeComEspacosDeveSerLimpo() {
     Produto p = new Produto("  Café  ", 5.0);
     assertEquals("Café", p.getNome());  
 }
+
+
+   // Testes de validção do preço do produto 
+   
+ @Test
+    void naoDevePermitirPrecoZero() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Produto("Café", 0.0);
+        });
+    }
+
+    @Test
+    void naoDevePermitirPrecoNegativo() {
+        assertThrows(IllegalArgumentException.class,
+                () -> new Produto("Café", -10.0));
+    }
+
 
 }
