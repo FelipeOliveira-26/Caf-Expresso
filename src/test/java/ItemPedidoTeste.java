@@ -48,4 +48,11 @@ public class ItemPedidoTeste {
 
         assertEquals("Quantidade deve ser maior que zero", exception.getMessage());
     }
+    @Test
+    void deveCalcularSubtotalCorretamente() {
+        Produto produto = new Produto("Café Expresso", 5.0);
+        ItemPedido item = new ItemPedido(produto, 3);
+
+        assertEquals(15.0, item.calcularSubtotal());
+    }
 }
