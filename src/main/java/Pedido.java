@@ -11,4 +11,8 @@ public class Pedido {
     public List<ItemPedido> getItens() {
         return itens;
     }
+
+    public void adicionarItem(ItemPedido item) {
+        itens.add(item);
+    }
 }
