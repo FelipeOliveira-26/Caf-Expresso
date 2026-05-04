@@ -11,5 +11,6 @@ public class ItemPedidoTeste {
 
         assertEquals(produto, item.getProduto());
         assertEquals(3, item.getQuantidade());
+
     }
 }
