@@ -23,4 +23,20 @@ public class PedidoTeste {
         assertEquals(1, pedido.getItens().size());
         assertEquals(item, pedido.getItens().get(0));
     }
+
+    @Test
+    void deveCalcularTotalDoPedido() {
+        Pedido pedido = new Pedido();
+
+        Produto cafe = new Produto("Café Expresso", 5.0);
+        Produto cappuccino = new Produto("Cappuccino", 8.0);
+
+        ItemPedido item1 = new ItemPedido(cafe, 2);       // 10
+        ItemPedido item2 = new ItemPedido(cappuccino, 1); // 8
+
+        pedido.adicionarItem(item1);
+        pedido.adicionarItem(item2);
+
+        assertEquals(18.0, pedido.calcularTotal());
+    }
 }
