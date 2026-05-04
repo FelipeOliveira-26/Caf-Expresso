@@ -15,4 +15,14 @@ public class Pedido {
     public void adicionarItem(ItemPedido item) {
         itens.add(item);
     }
+
+    public double calcularTotal() {
+        double total = 0;
+
+        for (ItemPedido item : itens) {
+            total += item.calcularSubtotal();
+        }
+
+        return total;
+    }
 }
