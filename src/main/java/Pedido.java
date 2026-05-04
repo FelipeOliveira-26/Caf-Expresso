@@ -11,8 +11,11 @@ public class Pedido {
     public List<ItemPedido> getItens() {
         return itens;
     }
-
     public void adicionarItem(ItemPedido item) {
+        if (item == null) {
+            throw new IllegalArgumentException("Item não pode ser nulo");
+        }
+
         itens.add(item);
     }
 

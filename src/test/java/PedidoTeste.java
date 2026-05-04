@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PedidoTeste {
 
@@ -38,5 +39,17 @@ public class PedidoTeste {
         pedido.adicionarItem(item2);
 
         assertEquals(18.0, pedido.calcularTotal());
+    }
+
+    @Test
+    void naoDevePermitirAdicionarItemNulo() {
+        Pedido pedido = new Pedido();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> pedido.adicionarItem(null)
+        );
+
+        assertEquals("Item não pode ser nulo", exception.getMessage());
     }
 }
