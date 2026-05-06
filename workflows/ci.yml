@@ -1,0 +1,31 @@
+name: Java Unit Test CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+  JAVA_VERSION: '17'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código fonte
+        uses: actions/checkout@v5
+
+      - name: Configurar o ambiente Java
+        uses: actions/setup-java@v5
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: 'temurin'
+
+      - name: Dar permissão ao Gradle
+        run: chmod +x gradlew
+
+      - name: Executar testes com Gradle
+        run: ./gradlew test
