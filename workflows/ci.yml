@@ -1,4 +1,4 @@
-name: Java Unit Test CI
+name: Java CI Completo
 
 on:
   push:
@@ -7,26 +7,42 @@ on:
     branches: [ "main" ]
 
 env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
   JAVA_VERSION: '17'
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
-
     steps:
-      - name: Checkout do código fonte
-        uses: actions/checkout@v5
+      - name: Checkout do código
+        uses: actions/checkout@v4
 
-      - name: Configurar o ambiente Java
-        uses: actions/setup-java@v5
+      - name: Configurar Java
+        uses: actions/setup-java@v4
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: 'temurin'
+          cache: gradle
 
       - name: Dar permissão ao Gradle
         run: chmod +x gradlew
 
-      - name: Executar testes com Gradle
+      # 🔍 Verifica se o projeto compila (sem rodar testes ainda)
+      - name: Verificar compilação
+        run: ./gradlew assemble
+
+      # 🧪 Executa testes
+      - name: Rodar testes
         run: ./gradlew test
+
+      # 📊 Gera relatório de testes (fica visível no GitHub)
+      - name: Publicar resultados dos testes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-testes
+          path: build/reports/tests/test/
+
+      # 🔎 Análise básica de código (lint)
+      - name: Verificar qualidade do código
+        run: ./gradlew check
