@@ -1,8 +1,8 @@
 public class Produto {
     private String nome;
     private double preco;
-    private StatusPedido status;
     
+
     public Produto(String nome, double preco) {
         validarNome(nome);
         validarPreco(preco);

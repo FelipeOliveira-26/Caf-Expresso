@@ -52,4 +52,104 @@ public class PedidoTeste {
 
         assertEquals("Item não pode ser nulo", exception.getMessage());
     }
+
+    @Test
+void deveIniciarComStatusPendente() {
+
+    Pedido pedido = new Pedido();
+
+    assertEquals(
+            StatusPedido.PENDENTE,
+            pedido.getStatus()
+    );
+}
+
+@Test
+void deveAlterarStatusDePendenteParaPago() {
+
+    Pedido pedido = new Pedido();
+
+    pedido.alterarStatus(StatusPedido.PAGO);
+
+    assertEquals(
+            StatusPedido.PAGO,
+            pedido.getStatus()
+    );
+}
+
+@Test
+void deveAlterarStatusDePagoParaEmPreparo() {
+
+    Pedido pedido = new Pedido();
+
+    pedido.alterarStatus(StatusPedido.PAGO);
+
+    pedido.alterarStatus(
+            StatusPedido.EM_PREPARO
+    );
+
+    assertEquals(
+            StatusPedido.EM_PREPARO,
+            pedido.getStatus()
+    );
+}
+
+@Test
+void deveAlterarStatusDeEmPreparoParaFinalizado() {
+
+    Pedido pedido = new Pedido();
+
+    pedido.alterarStatus(StatusPedido.PAGO);
+
+    pedido.alterarStatus(
+            StatusPedido.EM_PREPARO
+    );
+
+    pedido.alterarStatus(
+            StatusPedido.FINALIZADO
+    );
+
+    assertEquals(
+            StatusPedido.FINALIZADO,
+            pedido.getStatus()
+    );
+}
+
+@Test
+void naoDevePermitirPularStatus() {
+
+    Pedido pedido = new Pedido();
+
+    IllegalStateException exception =
+            assertThrows(
+                    IllegalStateException.class,
+                    () -> pedido.alterarStatus(
+                            StatusPedido.FINALIZADO
+                    )
+            );
+
+    assertEquals(
+            "Transição de status inválida",
+            exception.getMessage()
+    );
+}
+
+@Test
+void naoDevePermitirAlterarStatusParaNulo() {
+
+    Pedido pedido = new Pedido();
+
+    IllegalArgumentException exception =
+            assertThrows(
+                    IllegalArgumentException.class,
+                    () -> pedido.alterarStatus(null)
+            );
+
+    assertEquals(
+            "Status não pode ser nulo",
+            exception.getMessage()
+    );
+}
+
+
 }
