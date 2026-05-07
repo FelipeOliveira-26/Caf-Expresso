@@ -1,7 +1,8 @@
 public class Produto {
     private String nome;
     private double preco;
-
+    private StatusPedido status;
+    
     public Produto(String nome, double preco) {
         validarNome(nome);
         validarPreco(preco);
@@ -15,7 +16,7 @@ public class Produto {
 
         // Verifica se a variavel é null
         if (nome == null) {
-            throw new IllegalArgumentException("Nome não pode ser nulo");
+            throw new IllegalArgumentException("Nome nao pode ser nulo");
         }
         
         // Trim para limpar espaços
@@ -23,7 +24,7 @@ public class Produto {
         
         // Verifica se a variavel está Vazia ou contém apenas espaços 
         if (nomeLimpo.isEmpty()) {
-            throw new IllegalArgumentException("Nome não pode ser vazio ou conter apenas espaços");
+            throw new IllegalArgumentException("Nome não pode ser vazio ou conter apenas espacos");
         }
 
        
@@ -32,7 +33,7 @@ public class Produto {
     // Validação do preço do produto
     private void validarPreco(double preco) {
         if (preco <= 0) {
-            throw new IllegalArgumentException("O preço deve ser maior que zero");
+            throw new IllegalArgumentException("O preco deve ser maior que zero");
         }
     }
     

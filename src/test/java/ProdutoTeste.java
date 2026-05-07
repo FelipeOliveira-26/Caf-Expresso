@@ -6,10 +6,10 @@ public class ProdutoTeste {
 
     @Test
     void deveCriarProdutoComNomeEPrecoValidos() {
-        Produto produto = new Produto("Café Expresso", 5.00);
+        Produto produto = new Produto("Cafe Expresso", 5.00);
 
-        assertEquals("Café Expresso", produto.getNome());
-        assertEquals(5.00, produto.getPreco());
+        assertEquals("Cafe Expresso", produto.getNome());
+        assertEquals(5.00, produto.getPreco(), 0.001);
     }
      
     //Testes da validação do nome do produto
@@ -33,8 +33,8 @@ void nomeApenasEspacosDeveFalhar() {
 
 @Test
 void nomeComEspacosDeveSerLimpo() {
-    Produto p = new Produto("  Café  ", 5.0);
-    assertEquals("Café", p.getNome());  
+    Produto p = new Produto("  Cafe  ", 5.0);
+    assertEquals("Cafe", p.getNome());
 }
 
 
@@ -43,14 +43,14 @@ void nomeComEspacosDeveSerLimpo() {
  @Test
     void naoDevePermitirPrecoZero() {
         assertThrows(IllegalArgumentException.class, () -> {
-            new Produto("Café", 0.0);
+            new Produto("Cafe", 0.0);
         });
     }
 
     @Test
     void naoDevePermitirPrecoNegativo() {
         assertThrows(IllegalArgumentException.class,
-                () -> new Produto("Café", -10.0));
+                () -> new Produto("Cafe", -10.0));
     }
 
 
